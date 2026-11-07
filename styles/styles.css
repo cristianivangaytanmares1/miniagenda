@@ -1,0 +1,525 @@
+/* Importa la fuente Roboto desde Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+/* --------------------------------------------------
+   ESTILOS GENERALES DE LOS BOTONES
+   -------------------------------------------------- */
+
+/* Configuración principal de los botones */
+.button {
+  border-radius: 0.5rem; /* Redondea las esquinas */
+  background-color: transparent; /* Hace transparente el fondo */
+  height: 3rem; /* Define la altura */
+  width: 3rem; /* Define el ancho */
+  padding: 0.5rem; /* Espacio interno */
+  font-size: 1.5rem; /* Tamaño del texto o icono */
+  font-family: "Roboto", sans-serif; /* Fuente utilizada */
+  border: 1px solid var(--foreground-alpha); /* Define el borde */
+  transition: 0.3s all; /* Suaviza los cambios visuales */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  color: var(--foreground); /* Define el color del contenido */
+}
+
+/* Cambia el fondo del botón cuando el cursor pasa sobre él */
+.button:hover {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+/* --------------------------------------------------
+   CAMPOS DE ENTRADA
+   -------------------------------------------------- */
+
+/* Configuración de los campos donde se introduce información */
+.input {
+  background-color: transparent; /* Fondo transparente */
+  border: none; /* Elimina el borde */
+  outline: none; /* Elimina el contorno al seleccionar */
+  font-size: 1.5rem; /* Tamaño del texto */
+  padding: 0 0.5rem; /* Espacio interno */
+  color: var(--foreground); /* Color del texto */
+}
+
+/* Clase utilizada para redondear las esquinas */
+.border-radius-4 {
+  border-radius: 0.5rem;
+}
+
+/* --------------------------------------------------
+   CONFIGURACIÓN GENERAL DEL DOCUMENTO
+   -------------------------------------------------- */
+
+/* Define el color de fondo general del documento */
+html {
+  background: var(--background);
+}
+
+/* Configuración general del cuerpo de la aplicación */
+body {
+  display: flex; /* Utiliza el modelo Flexbox */
+  flex-direction: column; /* Organiza los elementos verticalmente */
+  align-items: center; /* Centra los elementos horizontalmente */
+  margin: 0; /* Elimina el margen predeterminado */
+  font-family: Roboto, sans-serif; /* Define la fuente */
+  padding-top: 5rem; /* Agrega espacio en la parte superior */
+  transition: 0.6s all; /* Suaviza los cambios de apariencia */
+  background: var(--background); /* Utiliza el color de fondo */
+}
+
+/* --------------------------------------------------
+   MODO CLARO
+   -------------------------------------------------- */
+
+/* Define los colores utilizados cuando la aplicación
+   está en modo claro */
+body.light {
+  --foreground: rgb(34, 34, 34);
+  --foreground-alpha: rgba(34, 34, 34, 0.8);
+  --background: rgb(238, 238, 238);
+  --background-alpha: rgba(238, 238, 238, 0.2);
+
+  /* Aplica el color principal al texto */
+  color: var(--foreground);
+
+  /* Aplica el color de fondo */
+  background-color: var(--background);
+}
+
+/* --------------------------------------------------
+   MODO OSCURO
+   -------------------------------------------------- */
+
+/* Define los colores utilizados cuando la aplicación
+   está en modo oscuro */
+body.dark {
+  --foreground: rgb(238, 238, 238);
+  --foreground-alpha: rgba(238, 238, 238, 0.2);
+  --background: rgb(34, 34, 34);
+  --background-alpha: rgba(34, 34, 34, 0.8);
+
+  /* Aplica el color principal al texto */
+  color: var(--foreground);
+
+  /* Aplica el color de fondo */
+  background-color: var(--background);
+}
+
+/* --------------------------------------------------
+   BARRA DE DESPLAZAMIENTO
+   -------------------------------------------------- */
+
+/* Define el tamaño y color de la barra de desplazamiento */
+body::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--background);
+}
+
+/* Define el fondo de la pista de desplazamiento */
+body::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+/* Define la apariencia de la parte que se desplaza */
+body::-webkit-scrollbar-thumb {
+  background: var(--foreground-alpha);
+  border-radius: 0.25rem;
+}
+
+/* Cambia el color de la barra al pasar el cursor */
+body::-webkit-scrollbar-thumb:hover {
+  background: var(--foreground);
+}
+
+/* --------------------------------------------------
+   ESTRUCTURA PRINCIPAL
+   -------------------------------------------------- */
+
+/* Define el tamaño y distribución de la sección
+   principal y del separador */
+body hr,
+body main {
+  display: flex;
+  width: 32rem;
+  margin-bottom: 2rem;
+}
+
+/* Configuración de la línea separadora */
+body hr {
+  border: 2px solid var(--foreground-alpha);
+  margin: 1rem 0;
+}
+
+/* Organiza el contenido principal verticalmente */
+body main {
+  flex-direction: column;
+}
+
+/* --------------------------------------------------
+   FORMULARIO PARA AGREGAR TAREAS
+   -------------------------------------------------- */
+
+/* Configuración visual del formulario */
+body main form {
+  background-color: var(--background-alpha);
+
+  /* Efecto de desenfoque en navegadores compatibles */
+  -webkit-backdrop-filter: blur(5px) saturate(150%);
+  backdrop-filter: blur(5px) saturate(150%);
+
+  /* Borde del formulario */
+  border: 1px solid var(--foreground-alpha);
+
+  /* Organiza los elementos horizontalmente */
+  display: flex;
+  flex-direction: row;
+
+  /* Espacio interno */
+  padding: 0.5rem;
+
+  /* Mantiene el formulario visible al desplazarse */
+  position: -webkit-sticky;
+  position: sticky;
+
+  /* Distancia desde la parte superior */
+  top: 5rem;
+}
+
+/* Permite que el campo de texto ocupe el espacio disponible */
+body main form input {
+  flex-grow: 2;
+
+  /* Separa el campo del botón */
+  margin-right: 0.5rem;
+}
+
+/* --------------------------------------------------
+   LISTA DE TAREAS
+   -------------------------------------------------- */
+
+/* Configuración general de la lista */
+#list {
+  list-style: "none"; /* Elimina el estilo tradicional de lista */
+  margin: 0; /* Elimina el margen */
+  padding: 0; /* Elimina el espacio interno */
+}
+
+/* Configuración individual de cada tarea */
+#list li {
+  border: 1px solid var(--foreground-alpha);
+  margin-bottom: 1rem;
+
+  /* Organiza los elementos de la tarea */
+  display: flex;
+
+  /* Centra verticalmente los elementos */
+  align-items: center;
+
+  /* Espacio interno */
+  padding: 0.5rem;
+
+  /* Redondea las esquinas */
+  border-radius: 0.5rem;
+}
+
+/* Configuración del checkbox de cada tarea */
+#list li input {
+  margin-right: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  border: 1px solid var(--foreground-alpha);
+  border-radius: 0;
+}
+
+/* Configuración del texto de cada tarea */
+#list li p {
+  flex-grow: 1;
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Cuando una tarea está marcada como completada,
+   su texto aparece tachado */
+#list li input:checked + p {
+  text-decoration: line-through;
+}
+
+/* Configuración del botón de cada tarea */
+#list li button.button {
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+}
+
+/* --------------------------------------------------
+   BARRA SUPERIOR DE LA APLICACIÓN
+   -------------------------------------------------- */
+
+/* Configuración general de la barra superior */
+#titleBar {
+  position: fixed; /* Mantiene la barra fija */
+  z-index: 100; /* La coloca por encima de otros elementos */
+
+  /* Define la posición utilizando las variables
+     disponibles para el área de título */
+  left: env(titlebar-area-x, 0);
+  top: env(titlebar-area-y, 0);
+
+  /* Define el tamaño de la barra */
+  width: env(titlebar-area-width, 100%);
+  height: env(titlebar-area-height, 33px);
+
+  /* Incluye los bordes dentro del tamaño total */
+  box-sizing: border-box;
+
+  /* Espaciado interno */
+  padding: 0 0rem 0 8px;
+
+  /* Utiliza Flexbox */
+  display: flex;
+
+  /* Centra los elementos verticalmente */
+  align-items: center;
+
+  /* Distribuye los elementos horizontalmente */
+  justify-content: space-between;
+
+  /* Suaviza las modificaciones de la barra */
+  transition: 0.6s all;
+
+  /* Permite arrastrar la barra */
+  -webkit-app-region: drag;
+}
+
+/* Evita que algunos elementos de la barra
+   puedan utilizar el comportamiento de arrastre */
+#titleBar > .no-drag {
+  -webkit-app-region: no-drag;
+}
+
+/* Configuración del encabezado */
+#titleBar > header {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  align-items: center;
+  transition: 0.3s all;
+}
+
+/* Configuración del título "ToDo App" */
+#titleBar > header > h1 {
+  margin: 0 8px 0 0;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: 0.3s all;
+  color: var(--foreground);
+}
+
+/* Configuración del indicador de conexión */
+#titleBar > header .status {
+  color: #fff;
+  height: 16px;
+  line-height: 16px;
+  border-radius: 8px;
+
+  /* Convierte el texto a mayúsculas */
+  text-transform: uppercase;
+
+  font-size: 8px;
+  overflow: hidden;
+  padding: 0 8px;
+  transition: 0.6s all;
+}
+
+/* Color utilizado cuando la aplicación está conectada */
+#titleBar > header .status.online {
+  background-color: forestgreen;
+}
+
+/* Color utilizado cuando la aplicación está desconectada */
+#titleBar > header .status.offline {
+  background: darkred;
+}
+
+/* Configuración de una posible imagen dentro del encabezado */
+#titleBar > header > img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+/* --------------------------------------------------
+   BOTONES DE LA BARRA SUPERIOR
+   -------------------------------------------------- */
+
+/* Contenedor de los botones de la barra */
+#titleBar > .title-bar-buttons {
+  background-color: var(--background);
+  display: flex;
+  border-bottom-left-radius: 0.5rem;
+  transition: 0.6s all;
+}
+
+/* Configuración individual de los botones */
+#titleBar > .title-bar-buttons .title-bar-button {
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0;
+
+  /* Utiliza la altura del área de título */
+  height: env(titlebar-area-height, 33px);
+
+  /* Define un ancho mínimo */
+  min-width: 48px;
+
+  /* Centra verticalmente el contenido */
+  line-height: env(titlebar-area-height, 33px);
+
+  font-size: 16px;
+  border: none;
+  margin: 0;
+}
+
+/* Cambia el fondo cuando el cursor pasa sobre
+   los botones de la barra */
+#titleBar > .title-bar-buttons .title-bar-button:hover {
+  background-color: var(--foreground-alpha);
+}
+
+/* --------------------------------------------------
+   BARRA SIN SUPERPOSICIÓN
+   -------------------------------------------------- */
+
+/* Configuración alternativa de la barra superior */
+#titleBar.no-overlay {
+  height: 4rem;
+  padding: 0 1rem;
+  background-color: var(--background-alpha);
+  border-bottom: 1px solid var(--foreground-alpha);
+
+  /* Efecto de desenfoque */
+  -webkit-backdrop-filter: blur(5px) saturate(150%);
+  backdrop-filter: blur(5px) saturate(150%);
+}
+
+/* Distribuye el contenido del encabezado */
+#titleBar.no-overlay > header {
+  justify-content: space-between;
+}
+
+/* Aumenta el tamaño del título */
+#titleBar.no-overlay > header > h1 {
+  font-size: 1.5rem;
+}
+
+/* Ajusta el indicador de estado */
+#titleBar.no-overlay > header > .status {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  padding: 0 0.5rem;
+}
+
+/* Hace transparente el fondo del contenedor
+   de botones */
+#titleBar.no-overlay > .title-bar-buttons {
+  background: transparent;
+}
+
+/* Configuración de los botones cuando se utiliza
+   el estilo no-overlay */
+#titleBar.no-overlay > .title-bar-buttons > .title-bar-button {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--foreground-alpha);
+  margin-left: 0.5rem;
+}
+
+/* --------------------------------------------------
+   ESTADO MINI DE LA BARRA
+   -------------------------------------------------- */
+
+/* Oculta el indicador de estado cuando la barra
+   se encuentra en modo mini */
+#titleBar.mini > header > .status {
+  opacity: 0;
+}
+
+/* Mueve los botones hacia arriba cuando la barra
+   está en modo mini */
+#titleBar.mini > .title-bar-buttons {
+  transform: translateY(-100%);
+}
+
+/* --------------------------------------------------
+   DISEÑO RESPONSIVO
+   -------------------------------------------------- */
+
+/* Estas reglas se aplican cuando la pantalla
+   tiene un ancho máximo de 560 píxeles */
+@media (max-width: 560px) {
+
+  /* Agrega espacio a los lados en pantallas pequeñas */
+  body {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  /* Hace que el contenido principal utilice
+     todo el ancho disponible */
+  body main {
+    width: 100%;
+  }
+}
+/* ==========================================
+   MEJORAS DEL INDICADOR DE INTERNET
+========================================== */
+
+#title-bar-status-indicator {
+    display: inline-block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    min-width: 85px;
+    text-align: center;
+    overflow: visible !important;
+}
+
+#title-bar-status-indicator.online {
+    background-color: forestgreen !important;
+    color: white !important;
+}
+
+#title-bar-status-indicator.offline {
+    background-color: darkred !important;
+    color: white !important;
+}
+
+/* ==========================================
+   EXPLICACIONES DE LOS BOTONES
+========================================== */
+
+#titleBar .title-bar-button {
+    position: relative;
+    cursor: pointer;
+}
+
+#titleBar .title-bar-button:hover::after {
+    content: attr(title);
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #222;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+/* Mapa generado automáticamente por el compilador de CSS */
+ /*# sourceMappingURL=styles.css.map */

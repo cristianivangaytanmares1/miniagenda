@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Permite utilizar caracteres especiales y diferentes idiomas -->
+    <meta charset="UTF-8">
+
+    <!-- Configuración para compatibilidad con Internet Explorer -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Permite que la aplicación se adapte a diferentes tamaños de pantalla -->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <!-- Título que aparece en la pestaña del navegador -->
+    <title>My ToDo List</title>
+
+    <!-- Conecta el archivo de estilos CSS con el documento HTML -->
+    <link rel="stylesheet" href="styles/styles.min.css">
+
+    <!-- Conecta el archivo Manifest de la PWA -->
+    <link rel="manifest" href="manifest.json" />
+
+    <!-- Iconos utilizados para el soporte de dispositivos iOS -->
+    <link rel="apple-touch-icon" href="assets/icons/icon-192x192.png" />
+    <link rel="apple-touch-icon" href="assets/icons/icon-256x256.png" />
+    <link rel="apple-touch-icon" href="assets/icons/icon-384x384.png" />
+    <link rel="apple-touch-icon" href="assets/icons/icon-512x512.png" />
+
+    <!-- Configuración visual para aplicaciones instaladas en iOS -->
+    <meta name="apple-mobile-web-app-status-bar" content="#222" />
+
+    <!-- Define el color principal de la aplicación -->
+    <meta name="theme-color" content="#222" />
+</head>
+
+<body>
+
+    <!-- Barra superior de la aplicación -->
+    <div id="titleBar" class="no-overlay">
+
+        <header>
+            <!-- Título principal de la aplicación -->
+            <h1>ToDo App</h1>
+
+            <!-- Muestra el estado de conexión -->
+          <div
+    id="title-bar-status-indicator"
+    class="status offline"
+    role="status"
+    aria-live="polite">
+    Sin conexión
+</div>
+        </header>
+
+        <!-- Botones de configuración de la aplicación -->
+        <div class="title-bar-buttons no-drag">
+
+            <!-- Botón para activar pantalla completa -->
+            <button
+    id="fullscreenBtn"
+    class="title-bar-button"
+    title="Activar o salir de pantalla completa"
+    aria-label="Pantalla completa">
+</button>
+
+         <button
+    id="themeSwitcher"
+    class="title-bar-button"
+    title="Cambiar entre tema claro y oscuro"
+    aria-label="Cambiar tema">
+</button>
+
+        </div>
+    </div>
+
+    <!-- Contenido principal de la aplicación -->
+    <main>
+
+        <!-- Formulario para crear una nueva tarea -->
+        <form action="" class="border-radius-4">
+
+            <!-- Campo donde el usuario escribe la tarea -->
+            <input
+                id="newTaskInput"
+                class="input"
+                type="text"
+                name="tarea"
+                placeholder="Ingresa una Tarea">
+
+            <!-- Botón para agregar la tarea -->
+            <button id="addBtn" class="button">
+                💾
+            </button>
+
+        </form>
+
+        <!-- Línea utilizada como separador visual -->
+        <hr>
+
+        <!-- Lista donde JavaScript mostrará las tareas -->
+        <ol id="list"></ol>
+
+        <!-- Botón para instalar la aplicación como PWA -->
+        <button id="installApp" class="button" type="button" hidden>
+            📲 Instalar aplicación
+        </button>
+
+    </main>
+
+    <!-- Conecta el documento HTML con el archivo JavaScript -->
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
