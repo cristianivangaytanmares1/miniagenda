@@ -577,15 +577,7 @@ const setExampleTasks = () => {
                 "lon": -65.48830173045123
             }
         },
-        {
-            "id": 1654810510990,
-            "texto": "Entrar a whatwebcando.today",
-            "completado": false,
-            "ubicacion": {
-                "lat": -33.671937866435044,
-                "lon": -65.48830173045123
-            }
-        }
+       
     ]
 }
 
